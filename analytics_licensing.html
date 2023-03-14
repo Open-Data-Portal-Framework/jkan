@@ -1,0 +1,63 @@
+---
+title: Licensing
+layout: default
+permalink: /analytics/licensing/
+---
+{% include breadcrumbs.html parent="Analytics" %}
+
+<!--Chart: number of data files by license-->
+<h2>Dataset Licensing</h2>
+
+<canvas id="chart-datasets-by-license" width="400" height="200"></canvas>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+                // loading the datasets data
+                $.getJSON('/datasets.json', function (datasets) {
+                        // Load charts
+                        chartDatasetsByLicense(datasets);
+                });
+        });
+
+        function chartDatasetsByLicense(datasets) {
+                let ctx = document.getElementById('chart-datasets-by-license').getContext('2d');
+                let data = _.chain(datasets)
+                        .groupBy('licence')
+                        .map((value, key) => ({ label: key === '' ? "Other" : key, count: value.length }))
+                        .orderBy('count', 'desc')
+                        .value();
+
+                let labels = _.chain(data)
+                        .map('label')
+                        .value();
+
+                let values = _.chain(data)
+                        .map('count')
+                        .value();
+
+                var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                                labels: labels,
+                                datasets: [{
+                                        label: '# of datasets by license',
+                                        data: values,
+                                        backgroundColor: 'rgba(31, 120, 180, 1)',
+                                        borderColor: 'rgba(31, 120, 180, 0.5)',
+                                        borderWidth: 1
+                                }]
+                        },
+                        options: {
+                                scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                        beginAtZero: true
+                                                }
+                                        }]
+                                }
+                        }
+                });
+        }
+
+</script>

@@ -1,0 +1,123 @@
+---
+title: Analytics
+layout: default
+permalink: /analytics/
+---
+{% include breadcrumbs.html %}
+
+<!--Commentary-->
+<h2>Dataset Overview</h2>
+<p class="lead" style="margin-bottom:0"><span id="stat-distinct-datasets"></span> Distinct datasets</p>
+<p class="lead" style="margin-bottom:0"><span id="stat-data-files"></span> Data files</p>
+
+<!--Chart: Unique datasets by org-->
+<canvas id="chart-datasets-by-org" width="400" height="200"></canvas>
+
+<!--Chart: Total files by org-->
+<canvas id="chart-datafiles-by-org" width="400" height="200"></canvas>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+                // loading the datasets data
+                $.getJSON('/datasets.json', function (datasets) {
+                        // Getting count of data files
+                        document.getElementById("stat-data-files").innerText = datasets.flatMap(ds => ds.resources).length;
+
+                        // Getting count of datasets
+                        document.getElementById("stat-distinct-datasets").innerHTML = datasets.length;
+
+                        // Load charts
+                        chartDatasetsByOrg(datasets);
+                        chartDataFilesByOrg(datasets);
+                });
+        });
+
+
+        function chartDatasetsByOrg(datasets) {
+                let ctx = document.getElementById('chart-datasets-by-org').getContext('2d');
+                let data = _.chain(datasets)
+                        .groupBy('organization')
+                        .map((value, key) => ({ label: key, count: value.length }))
+                        .orderBy('count', 'desc')
+                        .value();
+
+                let labels = _.chain(data)
+                        .map('label')
+                        .value();
+
+                let values = _.chain(data)
+                        .map('count')
+                        .value();
+
+                var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                                labels: labels,
+                                datasets: [{
+                                        label: '# of datasets',
+                                        data: values,
+                                        backgroundColor: 'rgba(31, 120, 180, 1)',
+                                        borderColor: 'rgba(31, 120, 180, 0.5)',
+                                        borderWidth: 1
+                                }]
+                        },
+                        options: {
+                                scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                        beginAtZero: true
+                                                }
+                                        }]
+                                }
+                        }
+                });
+        }
+
+        function chartDataFilesByOrg(datasets) {
+                let ctx = document.getElementById('chart-datafiles-by-org').getContext('2d');
+                let data = _.chain(datasets)
+                        .groupBy('organization')
+                        .map((value, key) => (
+                                {
+                                        label: key,
+                                        count: value.flatMap(x => x.resources).length
+                                }
+                        ))
+                        .filter(function (item) { return item.count > 0 })
+                        .orderBy('count', 'desc')
+                        .value();
+
+                let labels = _.chain(data)
+                        .map('label')
+                        .value();
+
+                let values = _.chain(data)
+                        .map('count')
+                        .value();
+
+                var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                                labels: labels,
+                                datasets: [{
+                                        label: '# of data files',
+                                        data: values,
+                                        backgroundColor: 'rgba(31, 120, 180, 1)',
+                                        borderColor: 'rgba(31, 120, 180, 0.5)',
+                                        borderWidth: 1
+                                }]
+                        },
+                        options: {
+                                scales: {
+                                        yAxes: [{
+                                                ticks: {
+                                                        beginAtZero: true
+                                                }
+                                        }]
+                                }
+                        }
+                });
+        }
+
+</script>

@@ -1,0 +1,22 @@
+---
+---
+[{% for dataset in site.datasets %}
+  {
+    "title": {{ dataset.title | jsonify }},
+    "organization": {{ dataset.organization | jsonify }}{% if dataset.notes != "" %},
+    "notes": {{ dataset.notes | jsonify }}{% endif %}{% if dataset.category != "" %},
+    "category": {{ dataset.category | jsonify }}{% endif %},
+    "url": "{{ site.baseurl }}{{ dataset.url }}",
+    "resources": {{dataset.resources | jsonify}},
+    {% if site.data.licenses[dataset.license] == null %}
+    "licence": "{{dataset.license}}",
+    {% else %}
+    "licence": "{{site.data.licenses[dataset.license]}}",
+    {% endif %}
+    "date_created": "{{dataset.date_created}}",
+    "date_updated": "{{dataset.date_updated}}",
+    {% assign org = site.organizations | find: "title", dataset.organization %}
+    "org_type": "{{ org.type }}"
+    
+  }{% unless forloop.last %},{% endunless %}{% endfor %}
+]

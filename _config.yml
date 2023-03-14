@@ -1,0 +1,128 @@
+plugins:
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+# url: "https://opendata.scot"
+
+title: Open Data Portal
+greeting: Welcome to your Open Data Portal
+description: A lightweight, backend-free open data portal
+baseurl: ""
+logo: /img/logo.png
+# repo: https://github.com/OpenDataScotland/jkan/
+
+# Site theme
+jkan_theme: Default
+
+# Authentication
+# github_client_id: 866fbab7e44f7551e770
+# gatekeeper_host: https://ods-jkan.herokuapp.com
+
+# Dataset schema
+schema: default
+
+# Nav bar
+navigation:
+  - title: Datasets
+    url: /datasets/
+  - title: Organizations
+    url: /organizations/
+  - title: Analytics
+    sub-pages:
+    - title: Overview
+      url: /analytics/
+    - title: Dataset file types
+      url: /analytics/file-types/
+    - title: Dataset licensing
+      url: /analytics/licensing/
+    - title: Local authority category breakdown
+      url: /analytics/local-authority-categories/
+  # - title: Local authority coverage
+  #   url: /analytics/local-authority-coverage/
+    - title: Portal types
+      url: /analytics/portal-types/
+    - title: Platform health
+      url: /analytics/platform-health/
+  - title: Suggest dataset
+    url: /suggest-dataset/
+  - title: About
+    sub-pages:
+      - title: About Your Project
+        url: /about/
+      - title: What is Open Data?
+        url: /whatisod/
+#     - title: State of Open Con '23
+#       url: /soocon23/
+#     - title: Site Analytics
+#       url: /about/siteanalytics/
+  - title: Resources
+    url: /resources/
+  
+# Collections
+collections:
+  datasets:
+    output: true
+    permalink: /datasets/:path/
+  organizations:
+    output: true
+    permalink: /organizations/:path/
+
+# Collections (cont'd)
+defaults:
+  - scope:
+      path: ""
+      type: datasets
+    values:
+      layout: dataset
+      category: Uncategorised
+      organization: N/A
+  - scope:
+      path: ""
+      type: organizations
+    values:
+      layout: organization
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Google Analytics
+google_analytics:
+  enabled: false
+  code: "UA-XXXXXX-1"
+
+# US Digital Analytics Program - https://analytics.usa.gov
+digital_analytics_program:
+  enabled: false
+  agency: ""
+  subagency: ""
+
+# Hypothesis.io - Annotator
+hypothesis:
+  enabled: false
+
+# Twitter
+twittercard:
+  enabled: true
+  username: "@opendata_sco"
+
+# Open Graph
+opengraph:
+  enabled: true
+
+# Exclude these files from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .travis.yml
+  - node_modules
+  - scripts/src
+  - package.json
+  - webpack.config.js
+  - README.md
+  - LICENSE
+
+# Site default images/logos
+default_org_icon: /img/icons/default_org_icon.png

@@ -1,0 +1,121 @@
+# To add fields, make a new schema file in this directory
+# and change the schema setting in _config.yml to its name
+dataset_fields:
+  - field_name: title
+    label: Title
+    datajson: title
+  - field_name: organization
+    label: Organization
+    form_template: form/organization.html
+    datajson: publisher.name
+  - field_name: notes
+    label: Description
+    form_template: form/textarea.html
+    datajson: description
+  - field_name: license
+    label: License
+    form_template: form/license.html
+    datajson: license
+  - field_name: category
+    label: Category
+    form_template: form/category.html
+    display_template: display/category.html
+    datajson: category
+  - field_name: maintainer
+    label: Maintainer
+    datajson: contactPoint.fn
+  - field_name: maintainer_email
+    label: Maintainer Email
+    datajson: contactPoint.hasEmail
+  - field_name: date_created
+    label: Date Created
+    datajson: date_created
+  - field_name: date_updated
+    label: Date Updated
+    datajson: date_updated
+  - field_name: records
+    label: Number of records
+    datajson: records
+  - field_name: original_dataset_link
+    label: Original dataset link
+    display_template: display/link.html
+    html_id: original-dataset-link
+    datajson: original_dataset_link    
+    
+
+resource_fields:
+  - field_name: name
+    label: Resource Name
+    datajson: distribution.title
+  - field_name: url
+    label: URL
+    datajson: distribution.downloadURL
+  - field_name: format
+    label: Format
+    datajson: distribution.format
+    form_template: form/dropdown.html
+    values:
+      - api
+      - csv
+      - json
+      - geojson
+      - html
+      - kml
+      - kmz
+      - shp
+      - xml
+
+organization_fields:
+  - field_name: title
+    label: Title
+  - field_name: description
+    label: Description
+  - field_name: logo
+    label: Logo
+  - field_name: type
+    label: Type
+    form_template: form/org_type.html
+    display_template: display/org_type.html
+    datajson: org_type
+  - field_name: portal_url
+    label: Portal URL
+  - field_name: org_url
+    label: Organization URL
+  - field_name: twitter_handle
+    label: Twitter handle
+  - field_name: gss_code
+    label: GSS code
+  - field_name: wikidata_org_qid
+    label: Wikidata QID for organization
+  - field_name: wikidata_portal_qid
+    label: Wikidata QID for portal#
+  - field_name: wdtk_id
+    label: WhatDoTheyKnow organization ID 
+  - field_name: portal_type
+    label: Portal type
+    form_template: form/dropdown.html
+    values:
+      - CKAN
+      - JKAN
+      - USMART
+      - ArcGIS
+      - Static
+      - Pure
+      - DSpace
+
+category_fields:
+  - field_name: name
+    label: Name
+  - field_name: logo
+    label: Logo
+  - field_name: logo_credit
+    label: Logo Credit
+  - field_name: featured
+    label: Featured on Homepage
+    form_template: form/checkbox.html
+
+organization_type_fields:
+  - field_name: title
+    label: Title
+  - field_name: description
+    label: Description
