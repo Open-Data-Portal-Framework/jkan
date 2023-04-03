@@ -2,7 +2,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
-# url: "https://opendata.scot"
+url: "https://open-data-portal-framework.github.io/jkan/"
 
 title: Open Data Portal
 greeting: Welcome to your Open Data Portal
