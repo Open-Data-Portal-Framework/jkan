@@ -7,7 +7,7 @@ url: "https://open-data-portal-framework.github.io/jkan/"
 title: Open Data Portal
 greeting: Welcome to your Open Data Portal
 description: A lightweight, backend-free open data portal
-baseurl: "jkan"
+baseurl: /jkan
 logo: /img/logo.png
 # repo: https://github.com/OpenDataScotland/jkan/
 
