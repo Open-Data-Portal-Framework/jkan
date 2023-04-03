@@ -7,7 +7,7 @@ plugins:
 title: Open Data Portal
 greeting: Welcome to your Open Data Portal
 description: A lightweight, backend-free open data portal
-baseurl: ""
+baseurl: /jkan
 logo: /img/logo.png
 # repo: https://github.com/OpenDataScotland/jkan/
 
