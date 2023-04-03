@@ -2,7 +2,7 @@
 schema: default
 title: Abertay University
 description: Research data from Abertay University
-logo: '{{ site.baseurl }}/img/org_logos/abertay_university.png'
+logo: 'jkan/img/org_logos/abertay_university.png'
 type:
 - Further Education
 portal_url: 'https://rke.abertay.ac.uk/en/datasets/'
