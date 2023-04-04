@@ -20,7 +20,7 @@ permalink: /analytics/
         document.addEventListener('DOMContentLoaded', () => {
 
                 // loading the datasets data
-                $.getJSON('/datasets.json', function (datasets) {
+                $.getJSON('./datasets.json', function (datasets) {
                         // Getting count of data files
                         document.getElementById("stat-data-files").innerText = datasets.flatMap(ds => ds.resources).length;
 
