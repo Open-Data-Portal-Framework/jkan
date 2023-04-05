@@ -17,7 +17,7 @@ permalink: /analytics/file-types/
         document.addEventListener('DOMContentLoaded', () => {
 
                 // Loading the datasets data
-                $.getJSON('/datasets.json', function (datasets) {
+                $.getJSON('../../datasets.json', function (datasets) {
                         // Load charts
                         chartFileTypes(datasets);
                 });

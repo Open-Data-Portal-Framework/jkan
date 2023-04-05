@@ -13,7 +13,7 @@ permalink: /analytics/portal-types/
     document.addEventListener('DOMContentLoaded', () => {
 
             // loading the datasets data
-            $.getJSON('/organizations.json', function (orgs) {
+            $.getJSON('../../organizations.json', function (orgs) {
                     // Load charts
                     chartPortalsByType(orgs);
             });
