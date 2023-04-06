@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'jkan_odp'
+require 'thor'
+
+module JkanODP
+  class CLI < Thor
+    desc "new PROJECT_NAME", "Create a new project from the gem"
+    def new(project_name)
+      JkanODP::create_new_project(project_name)
+    end
+  end
+end
+
+JkanODP::CLI.start
