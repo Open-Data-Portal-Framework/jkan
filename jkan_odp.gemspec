@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
     spec.homepage      = 'https://github.com/Open-Data-Portal-Framework/jkan_odp'
     spec.license       = 'MIT'
   
-    spec.files         = Dir.glob("**/*")
+    spec.files         = Dir.glob("**/*", File::FNM_DOTMATCH)
     spec.require_paths = ["lib", "bin"]
     spec.executables   = ["jkan_odp"]
   
