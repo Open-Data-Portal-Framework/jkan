@@ -9,14 +9,13 @@ greeting: Welcome to your Open Data Portal
 description: A lightweight, backend-free open data portal
 baseurl: /jkan
 logo: /img/logo.png
-# repo: https://github.com/OpenDataScotland/jkan/
+# repo: 
 
 # Site theme
 jkan_theme: Default
 
 # Authentication
 # github_client_id: 866fbab7e44f7551e770
-# gatekeeper_host: https://ods-jkan.herokuapp.com
 
 # Dataset schema
 schema: default
