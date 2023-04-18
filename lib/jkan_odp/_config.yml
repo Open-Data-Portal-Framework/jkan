@@ -2,7 +2,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-redirect-from
 
-url: "https://open-data-portal-framework.github.io/jkan/"
+# url: ""
 
 title: Open Data Portal
 greeting: Welcome to your Open Data Portal
@@ -14,8 +14,6 @@ logo: /img/logo.png
 # Site theme
 jkan_theme: Default
 
-# Authentication
-# github_client_id: 866fbab7e44f7551e770
 
 # Dataset schema
 schema: default
