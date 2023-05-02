@@ -19,5 +19,5 @@ Gem::Specification.new do |spec|
     spec.add_dependency 'jekyll-redirect-from', '~> 0.16.0'
     spec.add_dependency 'thor', '~> 1.2'
     spec.add_dependency 'wdm', '~> 0.1' if Gem.win_platform?
-  end
+end
   
