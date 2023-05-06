@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
     spec.name          = 'jkan_odp'
-    spec.version       = '0.1.0'
+    spec.version       = '0.1.2'
     spec.summary       = 'A gem to lauch the front-end of your open-data portal'
     spec.description   = 'A gem that is based on the structure of Open Data Scotland, which in turn, is based on JKAN.'
     spec.authors       = ['Danail Dimov']
