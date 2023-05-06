@@ -20,4 +20,8 @@ Gem::Specification.new do |spec|
     spec.add_dependency 'thor', '~> 1.2'
     spec.add_dependency 'wdm', '~> 0.1' if Gem.win_platform?
 end
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> ae4dd7f8d1f1a12295e18c76ed8b3c9febc0c9b9
